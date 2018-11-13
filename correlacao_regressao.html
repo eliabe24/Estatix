@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<title>Correlação e Regressão</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="_css/bootstrap-grid.css" />
+	<link rel="stylesheet" type="text/css" href="_css/estilo.css" />
+	<script src="_javascript/correlacao_regressao.js"></script>
+</head>
+
+<body class="container2">
+	<header class="sombra jumbotron col-12 container2">
+		<a href="index.html">
+			<h1><img src="_img/logo-estatix.png" class="col-12 col-sm-3 col-md-2"></h1>
+		</a>
+	</header><br />
+
+	<div class="container2 divpainel col-12 col-sm-11 col-md-8">
+		<h1 class="titulo">Correlação e Regressão</h1>
+		<label>X:
+			<input class="col-10 container texto" type="text" id="X" placeholder="Use ponto e vírgula para separar os dados"></label><br />
+		<label>Y:
+			<input class="col-10 container texto" type="text" id="Y" placeholder="Use ponto e vírgula para separar os dados"></label><br />
+
+		<fieldset id="painelProjecao" class="container2 col-12 col-sm-11 col-md-10" style="display:none"><br />
+			<legend>Selecione o tipo da variável<br /></legend>
+			<fieldset class=" container2 col-12" style="text-align: left">
+				<input type="radio" id="select_x" value="x" name="select" />Independente<br>
+				<input type="radio" id="select_y" value="y" name="select" />Dependente
+			</fieldset>
+			<div class="container2 col-12">
+				<input class="container texto" type="number" id="txtProjecao" placeholder="Valor Futuro">
+				<p id="valorFuturo"></p>
+				<button onclick="projecao()">Confirmar</button>
+			</div>
+		</fieldset>
+		<div id="painel" class="container2 col-12 col-sm-11 col-md-11" style="display: none">
+			<div class="container2 divpainel col-sm-12 col-12">
+
+				<fieldset class=" container2 col-sm-12 col-12">
+					<legend>Grafico de Dispersão</legend>
+					<canvas class="line-chart col-12 col-sm-11 col-md-12 container2"></canvas>
+					<table id="resultado" class="container2 col-12 col-sm-11 col-md-12 result"></table>
+				</fieldset>
+			</div>
+			<script src="_chartjs/Chart.js"></script>
+		</div>
+		<div id="btnFile" class="divFile col-10 col-sm-10 col-md-2">Upload Arquivo<br>
+			<input type="file" id="inputCSV" class="botaoArq" onchange="pegaCSV(this)">
+		</div>
+		<button id="btnConfirm" class="col-10 col-sm-10 col-md-2" onclick="testar()">Confirmar</button>
+		<a href="index.html"><button class="col-10 col-sm-10 col-md-2">Voltar</button></a>
+		<button id="btnProjecao" class="col-10 col-sm-10 col-md-3" onclick="entradaProjecao()" style="display: none">Fazer
+			Projeção Futura</button>
+		<button id="limpar" class="col-10 col-sm-10 col-md-2" onclick="limpar()">Limpar</button>
+
+	</div>
+</body>
+
+</html>

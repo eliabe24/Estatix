@@ -1,0 +1,101 @@
+<html lang="pt-br">
+
+<head>
+    <script src="_javascript/function.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="_css/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="_css/bootstrap-grid.css" />
+    <meta charset="utf-8" />
+    <title>Estatística Aplicada</title>
+</head>
+
+<body class="container2">
+    <header class="sombra jumbotron col-12 container2">
+        <a href="index.html">
+            <h1><img src="_img/logo-estatix.png" class="col-12 col-sm-3 col-md-2"></h1>
+        </a>
+    </header>
+
+
+    <div id="entrada" class="container divpainel col-12 col-sm-11 col-md-8">
+        <h1 class="titulo">Estatística Descritiva</h1>
+        <fieldset class="container2">
+            <legend>Primeira etapa - Coleta de dados</legend>
+
+            <p>Você pode digitar um elemento e a quantidade de vezes que ele aparece, digitar todos os elementos um a um ou fazer upload do arquivo CSV</p>
+            
+            <input id="elemento" class="col-12 col-sm-11 col-md-4 texto" placeholder="Elemento" />
+            <input id="qtdElemento" type="number" class="col-12 col-sm-11 col-md-4 texto" placeholder="Frequencia" />
+            <button id="inserirElementos" class="col-12 col-sm-11 col-md-2" style="padding: 8px; font-size: 12pt" onclick="insert()">Inserir</button>
+            
+            <textarea style="margin-bottom:0" class="col-12 col-sm-11 col-md-10 texto" rows="2" id="txtRol" placeholder="Digite aqui, use ponto e vírgula para separar os elementos"
+                required></textarea>
+                <div class="divFile col-12 col-sm-11 col-md-10 container">Upload Arquivo<br>
+                <input type="file" id="inputCSV" class="botaoArq" onchange="pegaCSV(this)">
+            </div>
+        </fieldset>
+
+        <fieldset class="selecao container2">
+            <legend>Escolha o tipo de pesquisa:</legend>
+            <select class="selecao container col-12 col-sm-11 col-md-10" id="pesquisa" required>
+                <option value="selecione">Selecione...</option>
+                <option value="populacao">População</option>
+                <option value="amostra">Amostra</option>
+            </select>
+        </fieldset>
+        <fieldset class="selecao container2">
+            <legend>Escolha o tipo de variável:</legend>
+            <select class="selecao ccol-12 col-sm-11 col-md-10" id="variavel" onchange="mostrarSeparatriz()" required>
+                <option value="">Selecione...</option>
+                <option value="quali">Qualitativa</option>
+                <option value="quantiD">Quantitaiva Discreta</option>
+                <option value="quantiC">Quantitativa Contínua</option>
+            </select>
+            <input id="nomeVariavel" type="text" placeholder="Digite o nome da variável" class="col-12 col-sm-11 col-md-5 texto">
+            <input id="nomeFi" type="text" placeholder="Digite o nome da fi" class="col-12 col-sm-11 col-md-5 texto">
+        </fieldset>
+        <fieldset id="selectSeparatriz" style="display: none" style="text-align: center" class="selecao container2">
+            <legend>Selecione a medida separatriz:</legend>
+            <select class="selecao col-12 col-sm-11 col-md-10" id="separatriz" onchange="habilitarTxt()">
+                <option value="nenhuma">Nenhuma</option>
+                <option value="Quartil">Quartil</option>
+                <option value="Quintil">Quintil</option>
+                <option value="Decil">Decil</option>
+                <option value="Percentil">Percentil</option>
+            </select>
+            <input id="txtseparatriz" class="col-12 col-sm-11 col-md-2 texto" type="text" maxlength="3" placeholder="Tamanho da medida" />
+        </fieldset>
+
+        <button class="col-5 col-sm-3 col-md-2" onclick="ordenar()">Confirmar</button>
+
+        <button class="col-5 col-sm-3 col-md-2" onclick="limpar()">Limpar</button>
+        <a href="index.html">
+            <button class="col-11 col-sm-3 col-md-2">Voltar</button>
+        </a>
+    </div>
+
+    <div id="painelRol" class="container divpainel col-12 col-sm-11 col-md-9" style="display: none">
+        <div class="container2 col-12 col-sm-12 col-md-12">
+            <h1>Ordenação e Tabulação</h1>
+            <p id="txtPainel">Os elementos já foram ordenados e estão visíveis abaixo, agora clique no botão respectivo
+                a variável que está
+                sendo pesquisada.</p>
+        </div>
+        <div id="pRol" class="divPainel col-12 col-sm-11 col-md-10">Rol: </div>
+        <div id="tabela" class="container2 divpainel col-12 col-sm-11 col-md-10">
+            <div class="divpainel">
+                <table id="tabelaTeste" class="col-12 col-sm-11 col-md-12"></table>
+            </div>
+            <div class="container divpainel"></div>
+            <canvas class="line-chart col-12 col-sm-11 col-md-12 container"></canvas>
+            <script src="_chartjs/Chart.js"></script>
+            <table id="medidas" class="col-12 col-sm-12 col-md-12"></table>
+            <a href="index.html">
+                <button class="col-12 col-sm-3 col-md-2 container">Voltar</button>
+            </a>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

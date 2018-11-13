@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<title>Probabilidade</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="_css/bootstrap-grid.css" />
+	<link rel="stylesheet" type="text/css" href="_css/estilo.css" />
+	<script src="_javascript/probabilidade.js"></script>
+</head>
+
+<body class="container2">
+	<header class="sombra jumbotron col-12 container2">
+        <a href="index.html">
+            <h1><img src="_img/logo-estatix.png" class="col-12 col-sm-3 col-md-2"></h1>
+        </a>
+    </header><br>
+	
+	<div style="text-align: center" class="container2 divpainel col-sm-8 col-12">
+		<h1 class="titulo">Distribuição de Probabilidade</h1>
+		<div class="selecao container2 col-sm-10 col-12">
+			<p>Tipo de distribuição</p>
+			<select class="col-12 col-sm-11 col-md-10" id="distribuicao" onchange="selecionar_dist()">
+				<option value="selecione">Selecione o tipo de distribuição</option>
+				<option value="normal">Normal</option>
+				<option value="uniforme">Uniforme</option>
+				<option value="binomial">Binomial</option>
+			</select>
+		</div><br />
+		<!-- div de entrada de dados da distribuição normal-->
+		<div id="entradaNormal" class="container2 divpainel col-12 col-sm-10 col-md-10 selecao" style="display: none;">
+			<div class=" container col-12">
+					<select class="selecao container col-12 col-sm-11 col-md-3" id="opcaoNormal">
+						<option value="selecione">Selecione</option>
+						<option value="entre">Entre</option>
+						<option value="maior">Maior que</option>
+						<option value="menor">Menor que</option>
+					</select>
+					<input class=" texto col-12 col-sm-11 col-md-7 container" type="text" name="dados" id="dados" placeholder="Digite os dados. Use ponto e vírgula para separar">
+
+				<br>
+				<input class=" texto col-12 col-sm-11 col-md-10 container" type="number" id="media" placeholder="Média">
+				<input class=" texto col-12 col-sm-11 col-md-10 container" type="number" id="DP" placeholder="Digite o Desvio Padrão">
+			</div>
+			<p id="prob"></p><br>
+			<a href="index.html"><button class="col-12 col-sm-11 col-md-3">Voltar</button></a>
+			<button class="col-12 col-sm-11 col-md-3" id="btnNormal" onclick="testar()">Confirmar</button>
+			<button class="col-12 col-sm-11 col-md-3" id="btnLimpar" onclick="limpar()">Limpar</button>
+		</div>
+		<!-- div de entrada de dados da distribuição uniforme-->
+		<div id="entradaUniforme" class="container2 divpainel col-12 col-sm-10 col-md-10" style="display: none;">
+			<div class=" container col-12">
+				<input class=" texto col-12 col-sm-11 col-md-10 container" type="text" id="numeros_intervalo" placeholder="Digite os números do intervalo. Use ponto e vírgula para separar os dados" />
+				<input class=" texto col-12 col-sm-11 col-md-10 container" type="text" id="ponto_min" placeholder="Digite o ponto mínimo" />
+				<input class=" texto col-12 col-sm-11 col-md-10 container" type="text" id="ponto_max" placeholder="Digite o ponto maximo" />
+			</div>
+			<div class="selecao container col-12">
+				<select class="selecao container col-12 col-sm-11 col-md-10" id="opcaoUniforme">
+					<option value="selecione">Selecione</option>
+					<option value="entre">Entre</option>
+					<option value="maior">Maior que</option>
+					<option value="menor">Menor que</option>
+					<option value="deate">De até</option>
+				</select>
+			</div><br>
+
+			<a href="index.html"><button class="col-12 col-sm-11 col-md-3">Voltar</button></a>
+			<button class="col-12 col-sm-11 col-md-3" id="btnUniforme" onclick="testar()">Confirmar</button>
+			<button class="col-12 col-sm-11 col-md-3" id="btnLimpar" onclick="limpar()">Limpar</button>
+		</div>
+		<!-- div de entrada de dados da distribuição binomial-->
+		<div id="entradaBinomial" class="container2 divpainel col-12 col-sm-10 col-md-10" style="display: none;">
+			<label>K:
+				<input class=" texto col-12 col-sm-11 col-md-10 container" type="text" id="K" placeholder="Use ponto e vírgula para separar os dados" /></label><br>
+			<label>N:
+				<input class=" texto col-12 col-sm-11 col-md-10 container" type="number" id="N" placeholder="Digite o tamanho da amostra" /></label><br>
+			<label>P:
+				<input class=" texto col-12 col-sm-11 col-md-10 container" type="number" step="0.1" min="0.1" max="0.9" id="P" placeholder="Digite o sucesso" /></label><br>
+			<label>Q:
+				<input class=" texto col-12 col-sm-11 col-md-10 container" type="number" step="0.1" min="0.1" max="0.9" id="Q" placeholder="Digite o fracasso" /></label><br>
+			<br>
+			<a href="index.html"><button class="col-12 col-sm-11 col-md-3">Voltar</button></a>
+			<button class="col-12 col-sm-11 col-md-3" id="btnBinomial" onclick="testar()">Confirmar</button>
+			<button class="col-12 col-sm-11 col-md-3" id="btnLimpar" onclick="limpar()">Limpar</button>
+		</div>
+		<div class="container2 divpainel col-12 col-sm-11 col-md-10 result" id="tabela">
+			<table id="resultado" class="col-12"></table>
+		</div>
+		<a href="index.html"><button class="col-3" id="voltar">Voltar</button></a>
+	</div>
+</body>
+
+</html>
